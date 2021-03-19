@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         localazyCard.setIcon(R.drawable.ic_localazy);
 
         // Title text
-        localazyCard.setTitle(getString(R.string.default_title) + " " + "AppName");
+        localazyCard.setTitle(getString(R.string.default_title) + " " + getString(R.string.app_name));
         localazyCard.setTitleTextSize(18f);
         localazyCard.setTitleTextStyle(Typeface.BOLD);
 
