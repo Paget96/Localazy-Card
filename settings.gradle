@@ -1,0 +1,3 @@
+rootProject.name = "Localazy-Card"
+include ':app'
+include ':LocalazyCard'
