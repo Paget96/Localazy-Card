@@ -2,6 +2,7 @@ package com.paget96.localazycard;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -77,8 +78,24 @@ public class LocalazyCard extends MaterialCardView {
         titleTextView.setText(title);
     }
 
+    public void setTitleTextSize(float textSize) {
+        titleTextView.setTextSize(textSize);
+    }
+
+    public void setTitleTextStyle(int typeface) {
+        titleTextView.setTypeface(titleTextView.getTypeface(), typeface);
+    }
+
     public void setSummaryText(String summaryText) {
         summaryTextView.setText(summaryText);
+    }
+
+    public void setSummaryTextStyle(int typeface) {
+        summaryTextView.setTypeface(summaryTextView.getTypeface(), typeface);
+    }
+
+    public void setSummaryTextSize(float textSize) {
+        summaryTextView.setTextSize(textSize);
     }
 
     public void setIcon(int icon) {

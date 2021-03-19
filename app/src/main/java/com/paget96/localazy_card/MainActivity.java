@@ -1,5 +1,6 @@
 package com.paget96.localazy_card;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,12 +17,23 @@ public class MainActivity extends AppCompatActivity {
 
         LocalazyCard localazyCard = findViewById(R.id.localazyCard);
         localazyCard.setIcon(R.drawable.ic_localazy);
-        localazyCard.setTitle(getString(R.string.default_title));
+
+        // Title text
+        localazyCard.setTitle(getString(R.string.default_title) + " " + "AppName");
+        localazyCard.setTitleTextSize(18f);
+        localazyCard.setTitleTextStyle(Typeface.BOLD);
+
+        // Summary text
         localazyCard.setSummaryText(getString(R.string.default_summary));
+        localazyCard.setSummaryTextSize(14f);
+        localazyCard.setSummaryTextStyle(Typeface.NORMAL);
+
+        // Button link
         localazyCard.setTranslateButton("https://localazy.com");
 
-        localazyCard.setRadius(24);
+        localazyCard.setRadius(24f);
         localazyCard.setStrokeColor(ContextCompat.getColor(this, R.color.design_default_color_primary));
         localazyCard.setStrokeWidth(2);
+        localazyCard.setElevation(0f);
     }
 }
