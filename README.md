@@ -17,7 +17,7 @@ allprojects {
 Include the library as a local library project or add the dependency in your build.gradle.
 ```
 dependencies {
-        implementation 'com.github.Paget96:Localazy-Card:Tag'
+        implementation 'com.github.Paget96:Localazy-Card:v1.0.2'
 }
 ```
 
@@ -69,3 +69,7 @@ localazyCard.setStrokeWidth(2); // Set stroke width
 localazyCard.setElevation(0f); // Set card elevation
 // And much more
 ```
+
+# Changelog
+### 1.0.2 (19-Mar-2021)
+- Added changing text size and style
