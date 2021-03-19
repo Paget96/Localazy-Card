@@ -42,9 +42,20 @@ Or do the same inside your Activity or Fragment
 ```
 LocalazyCard localazyCard = findViewById(R.id.localazyCard);
 
+// Card icon
 localazyCard.setIcon(R.drawable.ic_localazy);
-localazyCard.setTitle(getString(R.string.default_title));
+
+// Title text
+localazyCard.setTitle(getString(R.string.default_title) + " " + "AppName");
+localazyCard.setTitleTextSize(18f);
+localazyCard.setTitleTextStyle(Typeface.BOLD);
+
+// Summary text
 localazyCard.setSummaryText(getString(R.string.default_summary));
+localazyCard.setSummaryTextSize(14f);
+localazyCard.setSummaryTextStyle(Typeface.NORMAL);
+
+// Button link
 localazyCard.setTranslateButton("https://localazy.com");
 ```
 
@@ -54,5 +65,6 @@ Since this library is basically an extended view of a MaterialCardView, you can 
 localazyCard.setRadius(24); // Set card corner radius
 localazyCard.setStrokeColor(ContextCompat.getColor(this, R.color.design_default_color_primary)); // Set stroke color
 localazyCard.setStrokeWidth(2); // Set stroke width
+localazyCard.setElevation(0f); // Set card elevation
 // And much more
 ```
