@@ -1,6 +1,6 @@
 # Localazy-Card
 
-This is a small library to help the developers who already using Localazy to localize their apps
+This is a small library to help the developers who already using <a href="https://localazy.com">Localazy</a> to localize their apps
 
 Add it in your root build.gradle at the end of repositories:
 
@@ -46,4 +46,13 @@ localazyCard.setIcon(R.drawable.ic_localazy);
 localazyCard.setTitle(getString(R.string.default_title));
 localazyCard.setSummaryText(getString(R.string.default_summary));
 localazyCard.setTranslateButton("https://localazy.com");
+```
+
+### Step 3 (style)
+Since this library is basically an extended view of a MaterialCardView, you can use pretty much the same features as the default material card have
+```
+localazyCard.setRadius(24); // Set card corner radius
+localazyCard.setStrokeColor(ContextCompat.getColor(this, R.color.design_default_color_primary)); // Set stroke color
+localazyCard.setStrokeWidth(2); // Set stroke width
+// And much more
 ```
