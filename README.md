@@ -44,22 +44,23 @@ Include the view defined as below in your layout. And you can customize it like 
 Or do the same inside your Activity or Fragment
 ```
 LocalazyCard localazyCard = findViewById(R.id.localazyCard);
-
-// Card icon
 localazyCard.setIcon(R.drawable.ic_localazy);
 
 // Title text
-localazyCard.setTitle(getString(R.string.default_title) + " " + getString(R.string.app_name));
+localazyCard.setTitle("Translate" + " " + getString(R.string.app_name));
 localazyCard.setTitleTextSize(18f);
 localazyCard.setTitleTextStyle(Typeface.BOLD);
 
 // Summary text
-localazyCard.setSummaryText(getString(R.string.default_summary));
+localazyCard.setSummaryText("Help us to make " + getString(R.string.app_name) + " app multilingual, translate it to 50+ languages");
 localazyCard.setSummaryTextSize(14f);
 localazyCard.setSummaryTextStyle(Typeface.NORMAL);
 
-// Button link
+// Open translation link
 localazyCard.setTranslateButton("https://localazy.com");
+
+// Invite to translate
+localazyCard.setInviteButton(this, "I'm inviting you to help translating " + getString(R.string.app_name), "https://localazy.com");
 ```
 
 ### Step 3 (style)
@@ -73,5 +74,10 @@ localazyCard.setElevation(0f); // Set card elevation
 ```
 
 # Changelog
+### 1.0.3 (20-Mar-2021)
+- Added invitation button
+- Slightly updated card view
+- Updated app example
+
 ### 1.0.2 (19-Mar-2021)
 - Added changing text size and style

@@ -3,5 +3,10 @@
 
     <string name="default_title">Translate</string>
     <string name="default_summary">Help us make this app multilingual, translate to 50+ languages</string>
+    <string name="default_invitation_text">I\'m inviting to help me translating this app using Localazy</string>
+    <string name="translate">Translate</string>
+    <string name="invite">Invite</string>
+    <string name="powered_by_localazy">Powered by Localazy</string>
+
 
 </resources>

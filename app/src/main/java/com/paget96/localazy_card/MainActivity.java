@@ -19,17 +19,20 @@ public class MainActivity extends AppCompatActivity {
         localazyCard.setIcon(R.drawable.ic_localazy);
 
         // Title text
-        localazyCard.setTitle(getString(R.string.default_title) + " " + getString(R.string.app_name));
+        localazyCard.setTitle("Translate" + " " + getString(R.string.app_name));
         localazyCard.setTitleTextSize(18f);
         localazyCard.setTitleTextStyle(Typeface.BOLD);
 
         // Summary text
-        localazyCard.setSummaryText(getString(R.string.default_summary));
+        localazyCard.setSummaryText("Help us to make " + getString(R.string.app_name) + " app multilingual, translate it to 50+ languages");
         localazyCard.setSummaryTextSize(14f);
         localazyCard.setSummaryTextStyle(Typeface.NORMAL);
 
-        // Button link
+        // Open translation link
         localazyCard.setTranslateButton("https://localazy.com");
+
+        // Invite to translate
+        localazyCard.setInviteButton(this, "I'm inviting you to help translating " + getString(R.string.app_name), "https://localazy.com");
 
         localazyCard.setRadius(24f);
         localazyCard.setStrokeColor(ContextCompat.getColor(this, R.color.design_default_color_primary));

@@ -1,7 +1,9 @@
 package com.paget96.localazycard;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.TypedArray;
+import android.graphics.Canvas;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
@@ -23,7 +25,7 @@ public class LocalazyCard extends MaterialCardView {
     private View rootView;
     private TextView titleTextView, summaryTextView;
     private ImageView iconImageView;
-    private MaterialButton translateButton;
+    private MaterialButton inviteButton, translateButton;
 
     public LocalazyCard(final Context context) {
         this(context, null);
@@ -50,6 +52,7 @@ public class LocalazyCard extends MaterialCardView {
         titleTextView = rootView.findViewById(R.id.title_text);
         summaryTextView = rootView.findViewById(R.id.summary_text);
         iconImageView = rootView.findViewById(R.id.icon);
+        inviteButton = rootView.findViewById(R.id.invite);
         translateButton = rootView.findViewById(R.id.translate);
 
         setIcon(attributes.getResourceId(R.styleable.LocalazyCard_localazy_icon, R.drawable.ic_localazy));
@@ -104,5 +107,16 @@ public class LocalazyCard extends MaterialCardView {
 
     public void setTranslateButton(String url) {
         translateButton.setOnClickListener(v -> UiUtils.openLink(context, url));
+    }
+
+    public void setInviteButton(Context context, String textMessage, String url) {
+        inviteButton.setVisibility(VISIBLE);
+        inviteButton.setOnClickListener(v -> {
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.EXTRA_TEXT, textMessage + " " + url);
+            sendIntent.setType("text/plain");
+            context.startActivity(sendIntent);
+        });
     }
 }

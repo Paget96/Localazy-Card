@@ -5,6 +5,7 @@
         <attr name="localazy_icon" format="reference"/>
         <attr name="localazy_title" format="string"/>
         <attr name="localazy_summary" format="string"/>
+        <attr name="localazy_invitation_message" format="string"/>
         <attr name="localazy_app_translation_link" format="string"/>
 
     </declare-styleable>
