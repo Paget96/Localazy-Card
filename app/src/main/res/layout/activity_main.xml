@@ -14,6 +14,7 @@
         android:layout_margin="16dp"
         app:localazy_app_translation_link="https://localazy.com"
         app:localazy_icon="@drawable/ic_localazy"
+        app:localazy_invitation_message="@string/default_invitation_text"
         app:localazy_summary="@string/default_summary"
         app:localazy_title="@string/default_title" />
 
