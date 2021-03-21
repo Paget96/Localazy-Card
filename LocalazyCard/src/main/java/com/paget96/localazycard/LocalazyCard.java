@@ -38,7 +38,8 @@ public class LocalazyCard extends MaterialCardView {
     private MaterialButton inviteButton, translateButton;
     private TextView language;
     private ImageView arrowDown;
-    private LinearLayout selectLanguage;
+    private LinearLayout selectLanguageLayout;
+    private MaterialCardView selectLanguage;
     private Activity activity;
     private Map<String, String> languages;
 
@@ -101,6 +102,7 @@ public class LocalazyCard extends MaterialCardView {
     }
 
     private void setLanguageInitialization() {
+        selectLanguageLayout = rootView.findViewById(R.id.select_language_layout);
         selectLanguage = rootView.findViewById(R.id.select_language);
         language = rootView.findViewById(R.id.language);
         arrowDown = rootView.findViewById(R.id.expand_arrow);
@@ -109,7 +111,7 @@ public class LocalazyCard extends MaterialCardView {
 
         if (languages != null) {
             if (languages.size() > 1) {
-                rootView.setOnClickListener(v -> UiUtils.expandCollapseView(selectLanguage, arrowDown));
+                rootView.setOnClickListener(v -> UiUtils.expandCollapseView(selectLanguageLayout, arrowDown));
 
                 selectLanguage.setOnClickListener(v -> {
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);

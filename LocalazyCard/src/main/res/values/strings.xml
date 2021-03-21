@@ -8,6 +8,7 @@
     <string name="localazy_invite_button_text">Invite</string>
     <string name="localazy_powered_by_localazy">Powered by Localazy</string>
     <string name="localazy_set_language_dialog_title">Set language</string>
+    <string name="localazy_select_app_language">Select app language:</string>
 
 
 </resources>
