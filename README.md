@@ -5,7 +5,7 @@
 This is a small library to help the developers who already using <a href="https://localazy.com">Localazy</a> to localize their apps, 
 aside that library support app language changing directly from it
 
-<img src="resources/screenshot_1.png" width="356" height="356"/>
+<img src="resources/screenshot_1.png" width="316" height="512"/>
 
 Add it in your root build.gradle at the end of repositories:
 
