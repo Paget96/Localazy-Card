@@ -1,11 +1,11 @@
 # Localazy-Card
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) 
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FPaget96%2FLocalazy-Card&count_bg=%2379C83D&title_bg=%23555555&icon=talend.svg&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity) 
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FPaget96%2FLocalazy-Card&count_bg=%2379C83D&title_bg=%23555555&icon=talend.svg&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 
 This is a small library to help the developers who already using <a href="https://localazy.com">Localazy</a> to localize their apps, 
 aside that library support app language changing directly from it
 
-<img src="resources/screenshot_1.png" width="356" height="356"/>
+<img src="resources/screenshot_1.png" width="316" height="512"/>
 
 Add it in your root build.gradle at the end of repositories:
 
