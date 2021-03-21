@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Localazy-Card-Deutch</string>
+    <string name="translate">Übersetzen</string>
+    <string name="summary_text">Helfen Sie uns %1$s App mehrsprachig zu machen und in mehr als 50 Sprachen zu übersetzen</string>
+    <string name="invitation_text">Ich lade Sie ein, beim Übersetzen zu helfen %1$s</string>
+    <string name="this_is_test_1">Dies ist Test 1</string>
+    <string name="this_is_test_2">Dies ist Test 2</string>
+    <string name="this_is_test_3">Dies ist Test 3</string>
+</resources>

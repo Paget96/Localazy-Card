@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Localazy-Card</string>
+
+    <string name="translate">Translate</string>
+    <string name="summary_text">Help us to make %1$s app multilingual, translate it to 50+ languages</string>
+    <string name="invitation_text">I\'m inviting you to help translating %1$s</string>
+    <string name="this_is_test_1">This is test 1</string>
+    <string name="this_is_test_2">This is test 2</string>
+    <string name="this_is_test_3">This is test 3</string>
+
 </resources>

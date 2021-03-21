@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="default_title">Translate</string>
-    <string name="default_summary">Help us make this app multilingual, translate to 50+ languages</string>
-    <string name="default_invitation_text">I\'m inviting to help me translating this app using Localazy</string>
-    <string name="translate">Translate</string>
-    <string name="invite">Invite</string>
-    <string name="powered_by_localazy">Powered by Localazy</string>
+    <string name="localazy_default_title">Translate</string>
+    <string name="localazy_default_summary">Help us make this app multilingual, translate to 50+ languages</string>
+    <string name="localazy_default_invitation_text">I\'m inviting to help me translating this app using Localazy</string>
+    <string name="localazy_translate_button_text">Translate</string>
+    <string name="localazy_invite_button_text">Invite</string>
+    <string name="localazy_powered_by_localazy">Powered by Localazy</string>
+    <string name="localazy_set_language_dialog_title">Set language</string>
 
 
 </resources>

@@ -1,8 +1,9 @@
 # Localazy-Card
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) 
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FPaget96%2FLocalazy-Card&count_bg=%2379C83D&title_bg=%23555555&icon=talend.svg&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FPaget96%2FLocalazy-Card&count_bg=%2379C83D&title_bg=%23555555&icon=talend.svg&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity) 
 
-This is a small library to help the developers who already using <a href="https://localazy.com">Localazy</a> to localize their apps
+This is a small library to help the developers who already using <a href="https://localazy.com">Localazy</a> to localize their apps, 
+aside that library support app language changing directly from it
 
 <img src="resources/screenshot_1.png" width="356" height="356"/>
 
@@ -43,18 +44,35 @@ Include the view defined as below in your layout. And you can customize it like 
 ```
 
 ### Step 2
-Or do the same inside your Activity or Fragment
+##### (Optional) Add this to your activity if you want language changer feature
+```
+@Override
+protected void attachBaseContext(Context base) {
+    super.attachBaseContext(LocaleUtils.onAttach(base));
+}
+```
+#### Add this to the class which own the xml you set in Step 1
 ```
 LocalazyCard localazyCard = findViewById(R.id.localazyCard);
+
+// Optional - define what languages your app have
+// this will be used for language changer
+// IMPORTANT, define activity for language changing
+localazyCard.setActivity(this);
+localazyCard.setLanguages("en", "");
+localazyCard.setLanguages("de", "");
+localazyCard.setLanguages("fr", "");
+
+// Set card icon
 localazyCard.setIcon(R.drawable.ic_localazy);
 
 // Title text
-localazyCard.setTitle("Translate" + " " + getString(R.string.app_name));
+localazyCard.setTitle(getString(R.string.translate) + " " + getString(R.string.app_name));
 localazyCard.setTitleTextSize(18f);
 localazyCard.setTitleTextStyle(Typeface.BOLD);
 
 // Summary text
-localazyCard.setSummaryText("Help us to make " + getString(R.string.app_name) + " app multilingual, translate it to 50+ languages");
+localazyCard.setSummaryText(getString(R.string.summary_text, getString(R.string.app_name)));
 localazyCard.setSummaryTextSize(14f);
 localazyCard.setSummaryTextStyle(Typeface.NORMAL);
 
@@ -62,10 +80,24 @@ localazyCard.setSummaryTextStyle(Typeface.NORMAL);
 localazyCard.setTranslateButton("https://localazy.com");
 
 // Invite to translate
-localazyCard.setInviteButton(this, "I'm inviting you to help translating " + getString(R.string.app_name), "https://localazy.com");
+localazyCard.setInviteButton(this, getString(R.string.invitation_text, getString(R.string.app_name)) , "https://localazy.com");
 ```
 
-### Step 3 (style)
+### Step 3 (Strings)
+Add this to your strings file (those are default strings if you use configuration from step 2, this can be changed)
+```
+<string name="app_name">Localazy-Card</string>
+
+<string name="translate">Translate</string>
+<string name="summary_text">Help us to make %1$s app multilingual, translate it to 50+ languages</string>
+<string name="invitation_text">I\'m inviting you to help translating %1$s</string>
+<string name="this_is_test_1">This is test 1</string>
+<string name="this_is_test_2">This is test 2</string>
+<string name="this_is_test_3">This is test 3</string>
+
+```
+
+### Step 4 (style)
 Since this library is basically an extended view of a MaterialCardView, you can use pretty much the same features as the default material card have
 ```
 localazyCard.setRadius(24); // Set card corner radius
@@ -76,6 +108,11 @@ localazyCard.setElevation(0f); // Set card elevation
 ```
 
 # Changelog
+### 1.0.4 (20-Mar-2021)
+- Added feature to change app language directly from the app
+- Updated library code
+- Exported strings
+
 ### 1.0.3 (20-Mar-2021)
 - Added invitation button
 - Slightly updated card view
