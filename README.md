@@ -26,7 +26,7 @@ allprojects {
 Include the library as a local library project or add the dependency in your build.gradle.
 ```
 dependencies {
-        implementation 'com.github.Paget96:Localazy-Card:v1.0.4'
+            implementation 'com.github.Paget96:Localazy-Card:1.0.4'
 }
 ```
 
@@ -36,16 +36,16 @@ By the default library will set a default view, you can easily manipulate it ove
 ### Step 1
 Include the view defined as below in your layout. And you can customize it like this.
 ```
-   <com.paget96.localazycard.LocalazyCard
+    <com.paget96.localazycard.LocalazyCard
         android:id="@+id/localazyCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         app:localazy_app_translation_link="https://localazy.com"
         app:localazy_icon="@drawable/ic_localazy"
-        app:localazy_invitation_message="@string/default_invitation_text"
-        app:localazy_summary="@string/default_summary"
-        app:localazy_title="@string/default_title" />
+        app:localazy_invitation_message="@string/localazy_default_invitation_text"
+        app:localazy_summary="@string/localazy_default_summary"
+        app:localazy_title="@string/localazy_default_title" />
 ```
 
 ### Step 2
