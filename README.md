@@ -52,7 +52,7 @@ allprojects {
 Include the library as a local library project or add the dependency in your build.gradle.
 ```
 dependencies {
-            implementation 'com.github.Paget96:Localazy-Card:1.1'
+            implementation 'com.github.Paget96:Localazy-Card:1.1.1'
 }
 ```
 
