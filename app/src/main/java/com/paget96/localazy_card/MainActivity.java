@@ -1,6 +1,7 @@
 package com.paget96.localazy_card;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
@@ -29,9 +30,6 @@ public class MainActivity extends AppCompatActivity {
         // this will be used for language changer
         // IMPORTANT, define activity for language changing
         localazyCard.setActivity(this);
-        localazyCard.setLanguages("en", "");
-        localazyCard.setLanguages("de", "");
-        localazyCard.setLanguages("fr", "");
 
         // Set card icon
         localazyCard.setIcon(R.drawable.ic_localazy);
@@ -47,10 +45,14 @@ public class MainActivity extends AppCompatActivity {
         localazyCard.setSummaryTextStyle(Typeface.NORMAL);
 
         // Open translation link
-        localazyCard.setTranslateButton("https://localazy.com");
+        localazyCard.setTranslateButton();
+        localazyCard.translateButton.setTextColor(ContextCompat.getColor(this, R.color.white));
+        localazyCard.translateButton.setStrokeColor(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.white)));
 
         // Invite to translate
-        localazyCard.setInviteButton(this, getString(R.string.invitation_text, getString(R.string.app_name)) , "https://localazy.com");
+        localazyCard.setInviteButton(getString(R.string.invitation_text, getString(R.string.app_name)));
+        localazyCard.inviteButton.setTextColor(ContextCompat.getColor(this, R.color.white));
+        localazyCard.inviteButton.setStrokeColor(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.white)));
 
         localazyCard.setRadius(24f);
         localazyCard.setStrokeColor(ContextCompat.getColor(this, R.color.design_default_color_primary));

@@ -8,6 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:background="#FF0558BD"
         android:padding="8dp">
 
         <LinearLayout
@@ -16,7 +17,7 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/icon"
                 android:layout_width="72dp"
                 android:layout_height="72dp"
@@ -29,6 +30,7 @@
                 android:layout_height="wrap_content"
                 android:padding="12dp"
                 android:text="@string/localazy_default_title"
+                android:textColor="@color/cardview_light_background"
                 android:textSize="24sp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -38,7 +40,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="12dp"
-            android:text="@string/localazy_default_summary" />
+            android:text="@string/localazy_default_summary"
+            android:textColor="@color/cardview_light_background" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -83,6 +86,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:gravity="center_vertical"
+                android:textColor="@color/cardview_light_background"
                 android:text="@string/localazy_select_app_language" />
 
             <com.google.android.material.card.MaterialCardView
@@ -112,7 +116,7 @@
                         android:layout_marginStart="8dp"
                         android:layout_weight="1"
                         android:gravity="center_vertical"
-                        android:text="en" />
+                        android:text="English" />
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -131,6 +135,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:text="@string/localazy_powered_by_localazy"
+            android:textColor="@color/cardview_light_background"
             android:textSize="10sp"
             android:textStyle="italic" />
     </LinearLayout>

@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.application'
+    id 'com.localazy.gradle'
 }
 
 android {
@@ -28,6 +29,15 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+localazy {
+    readKey "put your read key"
+    writeKey "put your write key"
+
+    upload {
+        showUploadAll true
     }
 }
 

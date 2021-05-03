@@ -8,8 +8,8 @@ android {
     defaultConfig {
         minSdkVersion 22
         targetSdkVersion 30
-        versionCode 4
-        versionName "v1.0.4"
+        versionCode 5
+        versionName "v1.1"
 
         consumerProguardFiles "consumer-rules.pro"
     }
@@ -27,6 +27,8 @@ android {
 }
 
 dependencies {
+    implementation "com.localazy.android:core:[1.1.0,)"
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 
     // Support libs
     implementation 'androidx.appcompat:appcompat:1.2.0'

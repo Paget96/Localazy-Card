@@ -12,6 +12,32 @@ aside that library support app language changing directly from it
 
 <img src="resources/screenshot_1.png" width="30%"/>
 
+In order to use this library, you need to setup Localazy Gradle Plugin. Guide can be found on official website
+<a href="https://localazy.com/docs/android/localazy-gradle-plugin</a>
+
+**IMPORTANT THING**
+Do not apply this configuration to the Localazy Gradle Plugin, because injection and download is important to retrieve your Language pack
+```
+localazy {
+    injection {
+            enabledForRelease false
+            enabledForDebug false
+            library "none"
+        }
+    
+        download {
+            enabledForRelease false
+            enabledForDebug false
+        }
+    }
+```
+
+Since Localazy Card rely on Localazys OTA app needs INTERNET permission in order to work, add this code snippet to your Android Manifest, if you already done Localazy Gradle Plugin setup from the link above, you have done this step.
+
+```
+    <uses-permission android:name="android.permission.INTERNET" />
+```
+
 Add it in your root build.gradle at the end of repositories:
 
 ```
@@ -26,7 +52,7 @@ allprojects {
 Include the library as a local library project or add the dependency in your build.gradle.
 ```
 dependencies {
-            implementation 'com.github.Paget96:Localazy-Card:1.0.4'
+            implementation 'com.github.Paget96:Localazy-Card:1.1'
 }
 ```
 
@@ -41,7 +67,6 @@ Include the view defined as below in your layout. And you can customize it like 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        app:localazy_app_translation_link="https://localazy.com"
         app:localazy_icon="@drawable/ic_localazy"
         app:localazy_invitation_message="@string/localazy_default_invitation_text"
         app:localazy_summary="@string/localazy_default_summary"
@@ -60,13 +85,8 @@ protected void attachBaseContext(Context base) {
 ```
 LocalazyCard localazyCard = findViewById(R.id.localazyCard);
 
-// Optional - define what languages your app have
-// this will be used for language changer
 // IMPORTANT, define activity for language changing
 localazyCard.setActivity(this);
-localazyCard.setLanguages("en", "");
-localazyCard.setLanguages("de", "");
-localazyCard.setLanguages("fr", "");
 
 // Set card icon
 localazyCard.setIcon(R.drawable.ic_localazy);
@@ -82,10 +102,14 @@ localazyCard.setSummaryTextSize(14f);
 localazyCard.setSummaryTextStyle(Typeface.NORMAL);
 
 // Open translation link
-localazyCard.setTranslateButton("https://localazy.com");
+localazyCard.setTranslateButton();
+localazyCard.translateButton.setTextColor(ContextCompat.getColor(this, R.color.white));
+localazyCard.translateButton.setStrokeColor(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.white)));
 
 // Invite to translate
-localazyCard.setInviteButton(this, getString(R.string.invitation_text, getString(R.string.app_name)) , "https://localazy.com");
+localazyCard.setInviteButton(getString(R.string.invitation_text, getString(R.string.app_name)));
+localazyCard.inviteButton.setTextColor(ContextCompat.getColor(this, R.color.white));
+localazyCard.inviteButton.setStrokeColor(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.white)));
 ```
 
 ### Step 3 (Strings)
@@ -112,7 +136,17 @@ localazyCard.setElevation(0f); // Set card elevation
 // And much more
 ```
 
+
+
 # Changelog
+### 1.0.5 (4-May-2021)
+- Updated implementation
+- Changed base functionality
+- Added Localazy library to get and set languages
+- Removed useless parts of the code
+- Set buttons to public, manipulation on them "enabled"
+- Updated card design
+
 ### 1.0.4 (20-Mar-2021)
 - Added feature to change app language directly from the app
 - Updated library code
