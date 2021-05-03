@@ -139,7 +139,7 @@ localazyCard.setElevation(0f); // Set card elevation
 
 
 # Changelog
-### 1.0.5 (4-May-2021)
+### 1.1 (4-May-2021)
 - Updated implementation
 - Changed base functionality
 - Added Localazy library to get and set languages
