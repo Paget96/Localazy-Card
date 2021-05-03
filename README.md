@@ -13,7 +13,7 @@ aside that library support app language changing directly from it
 <img src="resources/screenshot_1.png" width="30%"/>
 
 In order to use this library, you need to setup Localazy Gradle Plugin. Guide can be found on official website
-<a href="https://localazy.com/docs/android/localazy-gradle-plugin</a>
+<a href="https://localazy.com/docs/android/localazy-gradle-plugin">Localazy Gradle Plugin</a>
 
 **IMPORTANT THING**
 Do not apply this configuration to the Localazy Gradle Plugin, because injection and download is important to retrieve your Language pack
