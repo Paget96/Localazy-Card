@@ -135,6 +135,9 @@ localazyCard.setElevation(0f); // Set card elevation
 
 
 # Changelog
+### 1.1.1 (4-May-2021)
+- Design overhaul
+
 ### 1.1 (4-May-2021)
 - Updated implementation
 - Changed base functionality
