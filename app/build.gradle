@@ -33,8 +33,11 @@ android {
 }
 
 localazy {
-    readKey "put your read key"
-    writeKey "put your write key"
+    readKey "a8656725215966304134-8b5aa3c93141379a5ea2b846163d92275588d9d764629c182391fd0fff22ab8a"
+    writeKey "a8656725215966304134-429e770f60f7942252acad9c47d7c454929e9bc8060383e13c51a1ffb8171f72"
+
+    //readKey "put your read key"
+    //writeKey "put your write key"
 
     upload {
         showUploadAll true

@@ -19,31 +19,4 @@ public class UiUtils {
             e.printStackTrace();
         }
     }
-
-    public static void expandView(View expandedLayout, View animateArrow) {
-        try {
-            animateArrow.animate().rotation(180).setDuration(500).start();
-        } catch (AndroidRuntimeException are) {
-            are.printStackTrace();
-        }
-        expandedLayout.setVisibility(View.VISIBLE);
-    }
-
-    public static void collapseView(View expandedLayout, View animateArrow) {
-        try {
-            animateArrow.animate().rotation(0).setDuration(500).start();
-        } catch (AndroidRuntimeException are) {
-            are.printStackTrace();
-        }
-        expandedLayout.setVisibility(View.GONE);
-    }
-
-    public static void expandCollapseView(View expandedLayout, View animateArrow) {
-        if (expandedLayout.isShown()) {
-            collapseView(expandedLayout, animateArrow);
-        } else {
-            expandView(expandedLayout, animateArrow);
-        }
-    }
-
 }

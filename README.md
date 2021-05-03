@@ -10,7 +10,7 @@
 This is a small library to help the developers who already using <a href="https://localazy.com">Localazy</a> to localize their apps, 
 aside that library support app language changing directly from it
 
-<img src="resources/screenshot_1.png" width="30%"/>
+<img src="resources/screenshot1.png" width="30%"/>
 
 In order to use this library, you need to setup Localazy Gradle Plugin. Guide can be found on official website
 <a href="https://localazy.com/docs/android/localazy-gradle-plugin">Localazy Gradle Plugin</a>
@@ -103,13 +103,9 @@ localazyCard.setSummaryTextStyle(Typeface.NORMAL);
 
 // Open translation link
 localazyCard.setTranslateButton();
-localazyCard.translateButton.setTextColor(ContextCompat.getColor(this, R.color.white));
-localazyCard.translateButton.setStrokeColor(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.white)));
 
 // Invite to translate
 localazyCard.setInviteButton(getString(R.string.invitation_text, getString(R.string.app_name)));
-localazyCard.inviteButton.setTextColor(ContextCompat.getColor(this, R.color.white));
-localazyCard.inviteButton.setStrokeColor(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.white)));
 ```
 
 ### Step 3 (Strings)

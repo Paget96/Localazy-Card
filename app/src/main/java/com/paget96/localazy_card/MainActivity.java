@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         localazyCard.setActivity(this);
 
         // Set card icon
-        localazyCard.setIcon(R.drawable.ic_localazy);
+        localazyCard.setIcon(R.drawable.ic_localazy_no_bgd);
 
         // Title text
         localazyCard.setTitle(getString(R.string.translate) + " " + getString(R.string.app_name));
@@ -46,13 +46,9 @@ public class MainActivity extends AppCompatActivity {
 
         // Open translation link
         localazyCard.setTranslateButton();
-        localazyCard.translateButton.setTextColor(ContextCompat.getColor(this, R.color.white));
-        localazyCard.translateButton.setStrokeColor(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.white)));
 
         // Invite to translate
         localazyCard.setInviteButton(getString(R.string.invitation_text, getString(R.string.app_name)));
-        localazyCard.inviteButton.setTextColor(ContextCompat.getColor(this, R.color.white));
-        localazyCard.inviteButton.setStrokeColor(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.white)));
 
         localazyCard.setRadius(24f);
         localazyCard.setStrokeColor(ContextCompat.getColor(this, R.color.design_default_color_primary));

@@ -3,9 +3,12 @@ package com.paget96.localazycard;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.net.Uri;
+import android.preference.PreferenceManager;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -35,16 +38,14 @@ import java.util.Map;
 public class LocalazyCard extends MaterialCardView {
 
     // Variables
+    private SharedPreferences preferences;
     private Context context;
     private LayoutInflater inflater;
     private View rootView;
     private TextView titleTextView, summaryTextView;
-    private ImageView iconImageView;
-    public MaterialButton inviteButton, translateButton;
+    private ImageView iconImageView, languageDownArrow;
+    public LinearLayout selectLanguage, inviteButton, translateButton;
     private TextView language;
-    private ImageView arrowDown;
-    private LinearLayout selectLanguageLayout;
-    private MaterialCardView selectLanguage;
     private Uri localazyTranslationLink;
     private Activity activity;
     private Map<String, String> languagesInternal;
@@ -75,6 +76,7 @@ public class LocalazyCard extends MaterialCardView {
         languagesInternal = new HashMap<>();
         languagesLocalazy = new HashMap<>();
         localazyTranslationLink = Localazy.getProjectUri();
+        preferences = PreferenceManager.getDefaultSharedPreferences(context);
 
         initializeViews(context, attrs, defStyleAttr);
     }
@@ -91,8 +93,21 @@ public class LocalazyCard extends MaterialCardView {
         titleTextView = rootView.findViewById(R.id.title_text);
         summaryTextView = rootView.findViewById(R.id.summary_text);
         iconImageView = rootView.findViewById(R.id.icon);
+        selectLanguage = rootView.findViewById(R.id.select_language);
+        language = rootView.findViewById(R.id.language);
+        languageDownArrow = rootView.findViewById(R.id.language_down_arrow);
         inviteButton = rootView.findViewById(R.id.invite);
         translateButton = rootView.findViewById(R.id.translate);
+
+        if (!preferences.getBoolean("language_selected", false)) {
+            selectLanguage.setBackgroundColor(ContextCompat.getColor(context, R.color.design_default_color_background));
+            language.setText(context.getText(R.string.localazy_select_app_language));
+            language.setTextColor(ContextCompat.getColor(context, R.color.no_language_selected_text_color));
+            languageDownArrow.setImageTintList(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.no_language_selected_text_color)));
+        } else {
+            LocalazyLocale currentLocale = Localazy.getCurrentLocalazyLocale();
+            language.setText(currentLocale.getLocalizedName());
+        }
 
         setIcon(attributes.getResourceId(R.styleable.LocalazyCard_localazy_icon, R.drawable.ic_localazy));
 
@@ -112,14 +127,6 @@ public class LocalazyCard extends MaterialCardView {
     }
 
     private void setLanguageInitialization() {
-        selectLanguageLayout = rootView.findViewById(R.id.select_language_layout);
-        selectLanguage = rootView.findViewById(R.id.select_language);
-        language = rootView.findViewById(R.id.language);
-        arrowDown = rootView.findViewById(R.id.expand_arrow);
-
-        LocalazyLocale currentLocale = Localazy.getCurrentLocalazyLocale();
-        language.setText(currentLocale.getLocalizedName());
-
         List<LocalazyLocale> locales = Localazy.getLocales();
 
         for (LocalazyLocale locale : locales) {
@@ -131,8 +138,6 @@ public class LocalazyCard extends MaterialCardView {
 
         if (languagesLocalazy != null) {
             if (languagesLocalazy.size() > 1) {
-                rootView.setOnClickListener(v -> UiUtils.expandCollapseView(selectLanguageLayout, arrowDown));
-
                 selectLanguage.setOnClickListener(v -> {
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
                     builder.setTitle(context.getString(R.string.localazy_set_language_dialog_title));
@@ -150,6 +155,8 @@ public class LocalazyCard extends MaterialCardView {
                     builder.setItems(languageName, (dialog, which) -> {
                         language.setText(langArray[which].getLocalizedName());
 
+                        preferences.edit().putBoolean("language_selected", true).apply();
+
                         Localazy.forceLocale(langArray[which].getLocale(), true);
                         activity.recreate();
                     });
@@ -157,11 +164,8 @@ public class LocalazyCard extends MaterialCardView {
                     AlertDialog dialog = builder.create();
                     dialog.show();
                 });
-            } else
-                arrowDown.setVisibility(GONE);
-
-        } else
-            arrowDown.setVisibility(GONE);
+            }
+        }
 
     }
 
