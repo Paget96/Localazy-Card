@@ -49,8 +49,8 @@
 
                 <ImageView
                     android:id="@+id/icon"
-                    android:layout_width="42dp"
-                    android:layout_height="42dp"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
                     android:src="@drawable/ic_localazy_no_bgd" />
             </LinearLayout>
 
