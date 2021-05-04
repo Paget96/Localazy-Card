@@ -153,8 +153,6 @@ public class LocalazyCard extends MaterialCardView {
                     }
 
                     builder.setItems(languageName, (dialog, which) -> {
-                        language.setText(langArray[which].getLocalizedName());
-
                         preferences.edit().putBoolean("language_selected", true).apply();
 
                         Localazy.forceLocale(langArray[which].getLocale(), true);
