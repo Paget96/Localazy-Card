@@ -1,22 +1,20 @@
-package com.paget96.localazycard.utils;
+package com.paget96.localazycard.utils
 
-import android.content.ActivityNotFoundException;
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.util.AndroidRuntimeException;
-import android.view.View;
+import android.content.ActivityNotFoundException
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
 
-public class UiUtils {
-
+object UiUtils {
     // Parses and open links.
-    public static void openLink(Context context, String link) {
-        Uri uri = Uri.parse(link);
-        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+    @JvmStatic
+    fun openLink(context: Context, link: String?) {
+        val uri = Uri.parse(link)
+        val intent = Intent(Intent.ACTION_VIEW, uri)
         try {
-            context.startActivity(intent);
-        } catch (ActivityNotFoundException e) {
-            e.printStackTrace();
+            context.startActivity(intent)
+        } catch (e: ActivityNotFoundException) {
+            e.printStackTrace()
         }
     }
 }

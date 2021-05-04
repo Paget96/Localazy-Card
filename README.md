@@ -52,7 +52,7 @@ allprojects {
 Include the library as a local library project or add the dependency in your build.gradle.
 ```
 dependencies {
-            implementation 'com.github.Paget96:Localazy-Card:1.1.1'
+            implementation 'com.github.Paget96:Localazy-Card:1.2'
 }
 ```
 
@@ -76,36 +76,39 @@ Include the view defined as below in your layout. And you can customize it like 
 ### Step 2
 ##### (Optional) Add this to your activity if you want language changer feature
 ```
-@Override
-protected void attachBaseContext(Context base) {
-    super.attachBaseContext(LocaleUtils.onAttach(base));
+override fun attachBaseContext(base: Context) {
+        super.attachBaseContext(onAttach(base))
 }
 ```
 #### Add this to the class which own the xml you set in Step 1
 ```
-LocalazyCard localazyCard = findViewById(R.id.localazyCard);
+val localazyCard = findViewById<LocalazyCard>(R.id.localazyCard)
 
 // IMPORTANT, define activity for language changing
-localazyCard.setActivity(this);
+localazyCard.setActivity(this)
 
 // Set card icon
-localazyCard.setIcon(R.drawable.ic_localazy);
+localazyCard.setIcon(R.drawable.ic_localazy_no_bgd)
 
 // Title text
-localazyCard.setTitle(getString(R.string.translate) + " " + getString(R.string.app_name));
-localazyCard.setTitleTextSize(18f);
-localazyCard.setTitleTextStyle(Typeface.BOLD);
+localazyCard.setTitle(getString(R.string.translate) + " " + getString(R.string.app_name))
+localazyCard.setTitleTextSize(18f)
+localazyCard.setTitleTextStyle(Typeface.BOLD)
 
 // Summary text
-localazyCard.setSummaryText(getString(R.string.summary_text, getString(R.string.app_name)));
-localazyCard.setSummaryTextSize(14f);
-localazyCard.setSummaryTextStyle(Typeface.NORMAL);
+localazyCard.setSummaryText(getString(R.string.summary_text, getString(R.string.app_name)))
+localazyCard.setSummaryTextSize(14f)
+localazyCard.setSummaryTextStyle(Typeface.NORMAL)
 
 // Open translation link
-localazyCard.setTranslateButton();
+localazyCard.setTranslateButton()
 
 // Invite to translate
-localazyCard.setInviteButton(getString(R.string.invitation_text, getString(R.string.app_name)));
+localazyCard.setInviteButton(getString(R.string.invitation_text, getString(R.string.app_name)))
+localazyCard.radius = 24f
+localazyCard.strokeColor = ContextCompat.getColor(this, R.color.design_default_color_primary)
+localazyCard.strokeWidth = 2
+localazyCard.elevation = 0f
 ```
 
 ### Step 3 (Strings)
@@ -125,16 +128,18 @@ Add this to your strings file (those are default strings if you use configuratio
 ### Step 4 (style)
 Since this library is basically an extended view of a MaterialCardView, you can use pretty much the same features as the default material card have
 ```
-localazyCard.setRadius(24); // Set card corner radius
-localazyCard.setStrokeColor(ContextCompat.getColor(this, R.color.design_default_color_primary)); // Set stroke color
-localazyCard.setStrokeWidth(2); // Set stroke width
-localazyCard.setElevation(0f); // Set card elevation
+localazyCard.radius = 24f // Set card corner radius
+localazyCard.setStrokeColor(ContextCompat.getColor(this, R.color.design_default_color_primary)) // Set stroke color
+localazyCard.strokeWidth = 2 // Set stroke width
+localazyCard.elevation = 0f // Set card elevation
 // And much more
 ```
 
 
-
 # Changelog
+### 1.2 (4-May-2021)
+- Converted code to Kotlin
+
 ### 1.1.1 (4-May-2021)
 - Design overhaul
 
