@@ -17,7 +17,7 @@ In order to use this library, you need to setup Localazy Gradle Plugin. Guide ca
 
 **IMPORTANT THING**
 Do not apply this configuration to the Localazy Gradle Plugin, because injection and download is important to retrieve your Language pack
-```
+```groovy
 localazy {
     injection {
             enabledForRelease false
@@ -34,23 +34,23 @@ localazy {
 
 Since Localazy Card rely on Localazys OTA app needs INTERNET permission in order to work, add this code snippet to your Android Manifest, if you already done Localazy Gradle Plugin setup from the link above, you have done this step.
 
-```
+```xml
     <uses-permission android:name="android.permission.INTERNET" />
 ```
 
 Add it in your root build.gradle at the end of repositories:
 
-```
+```groovy
 allprojects {
   repositories {
-    ...
+    //...omitted for brevity
     maven { url 'https://jitpack.io' }
   }
 }
 ```
-  
+
 Include the library as a local library project or add the dependency in your build.gradle.
-```
+```groovy
 dependencies {
             implementation 'com.github.Paget96:Localazy-Card:1.2'
 }
@@ -61,7 +61,7 @@ By the default library will set a default view, you can easily manipulate it ove
 
 ### Step 1
 Include the view defined as below in your layout. And you can customize it like this.
-```
+```xml
     <com.paget96.localazycard.LocalazyCard
         android:id="@+id/localazyCard"
         android:layout_width="match_parent"
@@ -75,13 +75,13 @@ Include the view defined as below in your layout. And you can customize it like 
 
 ### Step 2
 ##### (Optional) Add this to your activity if you want language changer feature
-```
+```kotlin
 override fun attachBaseContext(base: Context) {
         super.attachBaseContext(onAttach(base))
 }
 ```
 #### Add this to the class which own the xml you set in Step 1
-```
+```kotlin
 val localazyCard = findViewById<LocalazyCard>(R.id.localazyCard)
 
 // IMPORTANT, define activity for language changing
@@ -113,7 +113,7 @@ localazyCard.elevation = 0f
 
 ### Step 3 (Strings)
 Add this to your strings file (those are default strings if you use configuration from step 2, this can be changed)
-```
+```xml
 <string name="app_name">Localazy-Card</string>
 
 <string name="translate">Translate</string>
@@ -127,7 +127,7 @@ Add this to your strings file (those are default strings if you use configuratio
 
 ### Step 4 (style)
 Since this library is basically an extended view of a MaterialCardView, you can use pretty much the same features as the default material card have
-```
+```kotlin
 localazyCard.radius = 24f // Set card corner radius
 localazyCard.setStrokeColor(ContextCompat.getColor(this, R.color.design_default_color_primary)) // Set stroke color
 localazyCard.strokeWidth = 2 // Set stroke width
