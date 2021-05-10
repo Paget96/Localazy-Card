@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Localazy-Card-France</string>
+    <string name="app_name">Localazy-Card</string>
     <string name="translate">Traduire</string>
     <string name="summary_text">Aidez-nous à rendre l\'application %1$s multilingue, traduisez-la dans plus de 50 langues</string>
     <string name="invitation_text">Je vous invite à aider à traduire %1$s</string>
