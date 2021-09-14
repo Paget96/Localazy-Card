@@ -24,6 +24,7 @@ import com.paget96.localazycard.utils.UiUtils.openLink
 import java.util.*
 
 class LocalazyCard @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : MaterialCardView(context, attrs, defStyleAttr) {
+
     // Variables
     private val preferences: SharedPreferences
     private var titleTextView: TextView? = null
@@ -69,13 +70,13 @@ class LocalazyCard @JvmOverloads constructor(context: Context, attrs: AttributeS
 
         if (!preferences.getBoolean("language_selected", false)) {
             selectLanguage?.setBackgroundColor(ContextCompat.getColor(context, R.color.design_default_color_background))
-            language?.setText(context.getText(R.string.localazy_select_app_language))
+            language?.text = context.getText(R.string.localazy_select_app_language)
             language?.setTextColor(ContextCompat.getColor(context, R.color.no_language_selected_text_color))
-            languageDownArrow?.setImageTintList(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.no_language_selected_text_color)))
+            languageDownArrow?.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(context, R.color.no_language_selected_text_color))
 
         } else {
             val currentLocale = Localazy.getCurrentLocalazyLocale()
-            language?.setText(currentLocale.getLocalizedName())
+            language?.text = currentLocale.getLocalizedName()
         }
 
         setIcon(attributes.getResourceId(R.styleable.LocalazyCard_localazy_icon, R.drawable.ic_localazy))
@@ -108,10 +109,8 @@ class LocalazyCard @JvmOverloads constructor(context: Context, attrs: AttributeS
 
                     val builder = AlertDialog.Builder(context!!)
                     builder.setTitle(context!!.getString(R.string.localazy_set_language_dialog_title))
-                    val langArray: Array<LocalazyLocale>
-                    val langNameArray: Array<String>
-                    langArray = languagesLocalazy.keys.toTypedArray()
-                    langNameArray = languagesLocalazy.values.toTypedArray()
+                    val langArray: Array<LocalazyLocale> = languagesLocalazy.keys.toTypedArray()
+                    val langNameArray: Array<String> = languagesLocalazy.values.toTypedArray()
 
                     val languageName = arrayOfNulls<String>(langArray.size)
                     for (i in langArray.indices) {
